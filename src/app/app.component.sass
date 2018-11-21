@@ -1,0 +1,93 @@
+//Variables
+/*color*/
+$font-color: #f1f1f2
+$block-color: #20232a
+$btn-color: #c99e10
+$btn-color-hover: #acbebe
+
+$font: 'Oswald', sans-serif 
+
+html
+    font-family: $font 
+    
+body
+    padding: 0
+    margin: 0!important 
+    font-size: 14px
+
+.poll
+    background-image: url('../assets/img/bg3.jpg')
+    background-size: cover
+    height: 100vh
+    width: 100vw
+    padding: 0
+    margin: 0
+
+.question
+    width: 50vw
+    background-color: $block-color
+    color: $font-color
+    position: absolute   
+    top: 50%
+    left: 50%
+    transform: translate(-50%, -50%)   
+    //box-shadow: 5px 5px 15px 2px 
+
+h2
+    padding: 1rem 0
+    margin: 0
+    font-size: 2rem    
+    text-align: center    
+
+    &::after
+        content: ''
+        display: block
+        padding-top: 1rem
+        border-bottom: 2px solid $btn-color
+        animation: line 1.5s 1s ease
+
+@keyframes line 
+    from 
+        width: 0%
+    to
+        width: 100%
+
+main
+    padding: 1rem
+    ackground-color: $block-color
+
+.answers
+    margin: 0
+    padding: 0 1rem
+    list-style-type: none    
+
+    .answer
+        padding: 0 0 0.2rem 0  
+
+        input
+            cursor: pointer
+
+        label
+            padding-left: 0.3rem
+            cursor: pointer
+
+.btn-send
+    padding: 0.5rem 2rem
+    background: $btn-color
+    font-size: 1rem
+    border: none
+    display: block
+    margin: 0 auto
+    transition: all 0.5s
+
+.btn-send:hover    
+    background: $btn-color-hover
+    color: #20232a
+    
+
+        
+        
+
+    
+    
+

@@ -12,7 +12,7 @@ import { map } from 'rxjs/operators';
 export class AppComponent {
   title = 'poll';
   private apiUrl = 'http://localhost:3000/api/questions';
-  data: any = {};
+  data: any = [];
 
   constructor(private http: Http) {
     console.log('hello');
@@ -33,3 +33,7 @@ export class AppComponent {
     })
   }
 }
+
+
+
+
