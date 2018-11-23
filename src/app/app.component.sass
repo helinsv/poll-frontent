@@ -1,19 +1,51 @@
+        
 //Variables
-/*color*/
-$font-color: #f1f1f2
-$block-color: #20232a
-$btn-color: #c99e10
-$btn-color-hover: #acbebe
+/*colors*/
+$color-dark: #20232a   
+$color-light: #c99e10
+$color-hover: #acbebe
 
-$font: 'Oswald', sans-serif 
+$font-color-light: #f1f1f2
+$font-color-dark: $color-dark
+$block-color: $color-dark
 
+/*font*/
+$font-family: 'Oswald', sans-serif 
+$base-font-size: 16px;
+
+/*button*/
+$btn-color: $color-light
+$btn-color-hover: $color-hover
+$btn-padding: 0.5rem 2rem
+$btn-font-size: 1rem  
+
+@mixin button-color($color, $color-text-hover: $font-color-dark) 
+    color: $font-color-light
+    background-color: $btn-color
+
+    &:hover 
+        color: $color-text-hover
+        background-color: $color-hover
+    
+%button 
+    display: block
+    margin: 0 auto  
+    padding: $btn-padding
+    font-size: $btn-font-size
+    border: none
+    transition: all 0.5s    
+
+/*STYLES*/
 html
-    font-family: $font 
+    font-family: $font-family 
     
 body
     padding: 0
     margin: 0!important 
     font-size: 14px
+
+strong
+    color: $color-light
 
 .poll
     background-image: url('../assets/img/bg3.jpg')
@@ -26,7 +58,7 @@ body
 .question
     width: 50vw
     background-color: $block-color
-    color: $font-color
+    color: $font-color-light
     position: absolute   
     top: 50%
     left: 50%
@@ -62,7 +94,8 @@ main
     list-style-type: none    
 
     .answer
-        padding: 0 0 0.2rem 0  
+        padding: 0 0 0.2rem 0 
+        position: relative 
 
         input
             cursor: pointer
@@ -70,23 +103,41 @@ main
         label
             padding-left: 0.3rem
             cursor: pointer
+        
+        .vote
+            position: absolute
+            top: 0
+            right: 0
+            color: $color-light
+            display: inline-block
+            width: 5rem
+            height: 1.5rem
+            margin-left: 1rem
+    
+.votes
+    margin-top: 0.5em        
 
 .btn-send
-    padding: 0.5rem 2rem
-    background: $btn-color
-    font-size: 1rem
-    border: none
-    display: block
-    margin: 0 auto
-    transition: all 0.5s
+    @extend %button;
+    @include button-color($btn-color)  
 
-.btn-send:hover    
-    background: $btn-color-hover
-    color: #20232a
+    &:hover    
+        @include button-color($btn-color-hover)
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
     
-
-        
-        
 
     
     

@@ -32,7 +32,30 @@ export class AppComponent {
       this.data = data
     })
   }
+
+  votes: number = 0; 
+  procent: number = 0; 
+  message: string = 'Виберіть кандадата';
+ 
+  clickVote(a){
+    var votes = this.votes++;
+    var vote =  a.vote++ 
+    this.procent = vote*100/votes;     
+  }
+
+  getValue(array, votes) {
+    for (var i = 0; i < array.length; i++) {
+      array[i].procent = array[i].vote * 100 / votes;
+    } 
+  } 
 }
+
+
+
+ 
+
+
+
 
 
 

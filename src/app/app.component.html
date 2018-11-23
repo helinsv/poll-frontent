@@ -1,17 +1,19 @@
 <!--The content below is only a placeholder and can be replaced.-->
 <section class="poll">
-  <div class="question" *ngFor="let q of data">    
-    <h2>{{q.question}}</h2>  
+  <div class="question" *ngFor="let q of data">
+    <h2>{{q.question}}</h2>
     <main>
       <ul class="answers">
-        <li class="answer" *ngFor="let a of q.answers">
-          <input type="radio" id="{{a.answer}}" name="president" value="{{a.answer}}">
-          <label for="{{a.answer}}">{{a.answer}}</label>
-        </li>        
-      </ul>    
-      
-    <button class="btn-send">Send</button>
-  </main>
+        <li class="answer" *ngFor="let a of q.answers; let i = index;">
+          <input type="radio" id="kandydat-{{i}}" name="president" (click)="clickVote(a); getValue(q.answers, votes)">
+          <label for="kandydat-{{i}}">{{a.answer}}</label>
+          <!--<div class="vote"> {{a.vote}} </div>-->
+          <div class="vote"> {{a.procent | number : '1.2-2'}}% </div>
+        </li>
+      </ul>
+      <div class="votes">Кількість всіх голосів: <strong>{{votes}}</strong></div>
+      <!--<button class="btn-send">Send</button>-->
+    </main>
   </div>
 </section>
 
