@@ -1,1 +1,48 @@
 /* You can add global styles to this file, and also import other style files */
+//Variables
+/*colors*/
+$color-dark: #20232a   
+$color-light: #c99e10
+$color-hover: #acbebe
+
+$font-color-light: #f1f1f2
+$font-color-dark: $color-dark
+$block-color: $color-dark
+
+/*font*/
+$font-family: 'Oswald', sans-serif 
+$base-font-size: 16px;
+
+/*button*/
+$btn-color: $color-light
+$btn-color-hover: $color-hover
+$btn-padding: 0.5rem 2rem
+$btn-font-size: 1rem  
+
+@mixin button-color($color, $color-text-hover: $font-color-dark) 
+    color: $font-color-light
+    background-color: $btn-color
+
+    &:hover 
+        color: $color-text-hover
+        background-color: $color-hover
+    
+%button 
+    display: block
+    margin: 0 auto  
+    padding: $btn-padding
+    font-size: $btn-font-size
+    border: none
+    transition: all 0.5s    
+
+/*STYLES*/
+html
+    font-family: $font-family 
+    
+body
+    padding: 0
+    margin: 0!important 
+    font-size: 14px
+
+strong
+    color: $color-light
