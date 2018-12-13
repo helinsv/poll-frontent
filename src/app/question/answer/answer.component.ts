@@ -1,27 +1,36 @@
-import { Component, OnInit, Input, Output } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { VoteComponent} from '../vote.component';
 
 @Component({
   selector: 'app-answer',
   templateUrl: './answer.component.html',
   styleUrls: ['./answer.component.sass']
 })
-export class AnswerComponent{
-  //allVotes: number = 0;  
-
+export class AnswerComponent {
   @Input() answerComponent: string;
   @Input() id: number;
   @Input() answersArray: number;
-  @Input() allVotes: number;
+  allVotes: number;
+  @Output() votesReady = new EventEmitter<number>();
 
-  getVote(answerComponent){    
-    let vote =  answerComponent.vote++;    
-    //let allVotes = this.allVotes++;     
+  getVote(answerComponent) {
+    return answerComponent.vote++;
   }
-  
+
+  getVotes(answersArray) {
+    let allVotes: number;
+    allVotes = 0;
+    for (let i = 0; i < answersArray.length; i++) {
+      allVotes =  allVotes + answersArray[i].vote;
+    }
+    this.allVotes = allVotes;
+    this.votesReady.emit(this.allVotes);
+  }
+
   getPercent(answersArray, allVotes) {
-    for (var i = 0; i < answersArray.length; i++) {
-      answersArray[i].procent = answersArray[i].vote * 100 / allVotes;
-    } 
+    for (let i = 0; i < answersArray.length; i++) {
+      answersArray[i].procent = answersArray[i].vote * 1000 / allVotes;
+    }
   }
 }
 

@@ -1,7 +1,5 @@
 <input type="radio" id="kandydat-{{id}}" name="president" 
-(click)="getVote(answerComponent); getPercent(answersArray, allVotes)" 
->
+(click)="getVote(answerComponent); getVotes(answersArray); getPercent(answersArray, allVotes)">
 <label for="kandydat-{{i}}">{{answerComponent.answer}}</label>
 <div class="vote"> {{answerComponent.procent | percent}} </div>  
-<!--<div class="votes">Кількість всіх голосів: <strong>{{allVotes}}</strong></div>-->
 <div class="votes">Кількість голосів: <strong>{{answerComponent.vote}}</strong></div>

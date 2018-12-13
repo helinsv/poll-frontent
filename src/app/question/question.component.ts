@@ -15,7 +15,7 @@ import { map } from 'rxjs/operators';
 } 
 
 data: questions[]; */
-  
+
 @Component({
   selector: 'app-question',
   templateUrl: './question.component.html',
@@ -27,43 +27,25 @@ export class QuestionComponent {
 
   private apiUrl = 'http://localhost:3000/api/questions';
   data: any = [];
+  votes: number = 0;
 
-  constructor(private http: Http) {   
+  constructor(private http: Http) {
     this.getQuestions();
-    this.getData();    
+    this.getData();
   }
 
-  getData(){
-    return this.http.get(this.apiUrl).pipe(map(r => r.json()));    
+  getData() {
+    return this.http.get(this.apiUrl).pipe(map(r => r.json()));
   }
 
-  getQuestions(){
+  getQuestions() {
     this.getData().subscribe(data => {
-      this.data = data
-    })
+      this.data = data;
+    });
   }
 
-  /*------
-  =====
-    answer component
-  =====
-  --------
- 
-
-  votes: number = 0; 
-  procent: number = 0; 
- 
-  clickVote(answer){
-    var votes = this.votes++;
-    var vote =  answer.vote++ 
-    this.procent = vote*100/votes;     
+  showVotes(votes) {
+    this.votes = votes;
   }
-
-  getValue(array, votes) {
-    for (var i = 0; i < array.length; i++) {
-      array[i].procent = array[i].vote * 100 / votes;
-    } 
-
-  } */
 
 }
