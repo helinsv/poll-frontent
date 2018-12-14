@@ -1,43 +1,28 @@
-import { Component, Input } from '@angular/core';
-import { Http, Response } from '@angular/http';
-import { Observable } from 'rxjs';
-import { map } from 'rxjs/operators';
-import { environment } from 'src/environments/environment';
-import {Questions} from './questions';
-/*import {Answers} from './answers';*/
-/*class questions {
-  id: number;
-  question: string;
-  
-} 
-
-data: questions[]; */
+import { Component, Input, OnInit } from '@angular/core';
+import { DataService } from './data.service';
+import { Questions } from './questions';
 
 @Component({
   selector: 'app-question',
   templateUrl: './question.component.html',
-  styleUrls: ['./question.component.sass']
+  styleUrls: ['./question.component.sass'],
+  providers: [DataService]
 })
 
-export class QuestionComponent {
-  //private apiUrl = 'http://localhost:3000/api/questions';
-
-  data: any = [];
+export class QuestionComponent implements OnInit {
   votes: number = 0;
+  data: Questions[];
 
-  constructor(private http: Http) {
-    this.getQuestions();
-    this.getData();
-  }
+  constructor(private dataService: DataService) {}
 
-  getData() {
-    return this.http.get(`${environment.apiUrl}`).pipe(map(r => r.json()));
-  }
-
-  getQuestions() {
-    this.getData().subscribe(async data => {
+  getQuestions(): void {
+    this.dataService.getData().subscribe(async data => {
       this.data = data;
     });
+  }
+
+  ngOnInit(): void {
+      this.getQuestions();
   }
 
   showVotes(votes) {

@@ -1,5 +1,4 @@
-import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
-import { VoteComponent} from '../vote.component';
+import { Component, Input, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-answer',
@@ -32,18 +31,4 @@ export class AnswerComponent {
       answersArray[i].procent = answersArray[i].vote * 1000 / allVotes;
     }
   }
-
-  /*maxPersent(answersArray) {
-    let max: number;
-    for (let i = 0; i < answersArray.length-1; i++) {
-      if (answersArray[i].procent > answersArray[i + 1].procent) {
-        max = answersArray[i];        
-      } else {
-        max = answersArray[i + 1];
-      } 
-      //answersArray[max].test = 'fgfgf';
-    }
-    console.log(max);
-  }*/
 }
-

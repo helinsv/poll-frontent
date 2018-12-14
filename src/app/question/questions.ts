@@ -10,5 +10,3 @@ export class Questions {
           }
     ) { }
 }
-
-/*public Answers?: Array<Object>,*/
