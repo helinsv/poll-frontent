@@ -2,16 +2,13 @@ import { Component, Input } from '@angular/core';
 import { Http, Response } from '@angular/http';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
-
+import { environment } from 'src/environments/environment';
+import {Questions} from './questions';
+/*import {Answers} from './answers';*/
 /*class questions {
   id: number;
   question: string;
-  answers: {
-    id: number;
-    answer: string;
-    vote: number;
-    procent: number;
-  }  
+  
 } 
 
 data: questions[]; */
@@ -23,9 +20,8 @@ data: questions[]; */
 })
 
 export class QuestionComponent {
-  /*@Input() data: any [];   */
+  //private apiUrl = 'http://localhost:3000/api/questions';
 
-  private apiUrl = 'http://localhost:3000/api/questions';
   data: any = [];
   votes: number = 0;
 
@@ -35,11 +31,11 @@ export class QuestionComponent {
   }
 
   getData() {
-    return this.http.get(this.apiUrl).pipe(map(r => r.json()));
+    return this.http.get(`${environment.apiUrl}`).pipe(map(r => r.json()));
   }
 
   getQuestions() {
-    this.getData().subscribe(data => {
+    this.getData().subscribe(async data => {
       this.data = data;
     });
   }
