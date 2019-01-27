@@ -4,7 +4,7 @@ import { Component, Input} from '@angular/core';
   selector: 'app-vote',
   template: ` <div class="votes" >Кількість всіх голосів: <strong>{{votes}}</strong></div>
    `,
-  styleUrls: ['./question.component.sass']
+  styleUrls: ['./poll.component.sass']
 })
 
 export class VoteComponent {

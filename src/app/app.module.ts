@@ -3,14 +3,15 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { AppComponent } from './app.component';
-import { QuestionComponent } from './question/question.component';
-import { AnswerComponent } from './question/answer/answer.component';
-import { VoteComponent } from './question/vote.component';
+import { PollComponent } from './poll/poll.component';
+import { QuestionComponent } from './poll/question.component';
+import { AnswerComponent } from './poll/answer/answer.component';
+import { VoteComponent } from './poll/vote.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    QuestionComponent, AnswerComponent, VoteComponent
+    PollComponent, QuestionComponent, AnswerComponent, VoteComponent
   ],
   imports: [
     BrowserModule,
