@@ -1,19 +1,11 @@
-<div class="poll" *ngFor="let poll of data">
+<div class="poll" *ngFor="let poll of data; let i = index;">
     <app-question [question]="poll.question"></app-question>
     <main>
-      <ul class="answers" >
-        <li class="answer" *ngFor="let answer of poll.answers; let i = index;" >    <!--(click)="counter.clickAllVotes();"-->     
-          <app-answer [answerComponent]="answer" [answersArray]="poll.answers" [id]="i" (votesReady)="showVotes($event)"></app-answer>         
-        </li>
-      </ul>          
-       
-       <app-vote [votes]="votes" ></app-vote>   <!--#counter-->      
-      <!--<div class="add-new-variant" *ngIf="visible">
-        <label for="new">Add variant: </label>
-        <input type="text" name="new" required pattern="[a-zA-Z_]" >       
-      </div>
-      <button (click)="toggle_block();" class="btn-send">Add variant</button>  <!--(clickVotes)="clickAllVotes($event)"-->
-
+        <ul class="answers">
+            <li class="answer" *ngFor="let answer of poll.answers; let i = index;">
+                <app-answer [answerComponent]="answer" [answersArray]="poll.answers" [id]="i"></app-answer>
+            </li>
+        </ul>
+        <!-- <app-add-answer></app-add-answer>-->
     </main>
-  </div>
-  
+</div>

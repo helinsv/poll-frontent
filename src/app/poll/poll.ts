@@ -10,17 +10,12 @@ export class Question {
 export class Answer {
     private id: number;
     private answer: string;
-    private vote: number;
-    private persent: number;
 
     public constructor(id, answer) {
         this.id = id;
         this.answer = answer;
     }
 
-    public increaseVote () {
-        this.vote++;
-    }
 }
 
 export class Poll {

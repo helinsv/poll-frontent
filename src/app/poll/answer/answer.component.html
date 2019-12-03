@@ -1,11 +1,5 @@
-<input type="radio" id="kandydat-{{id}}" name="president" 
-(click)="getVote(answerComponent); getVotes(answersArray); getPercent(answersArray, allVotes)">
-<label for="kandydat-{{i}}">{{answerComponent.answer}} </label>
-<div class="vote" id="my_id"  
-[ngStyle]="answerComponent.procent == max_persent ? {'color': '#008f46'} : {'color': '#c99e10'}"
-> {{answerComponent.procent | percent}} </div>  
-<div class="votes">Кількість id голосів: <strong>{{answerComponent.vote}}</strong></div>
-
+<input type="radio" name="president">
+<label>{{answerComponent.answer}} </label>
 <!--
-    [style.color]="color" 
+    [style.color]="color"
 -->

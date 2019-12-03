@@ -10,10 +10,7 @@ import { Poll } from './poll';
 })
 
 export class PollComponent implements OnInit {
-  votes: number = 0;
   data: Poll[];
-  visible: boolean = false;
-  answer: Poll = new Poll();
 
   constructor(private dataService: DataService) { }
 
@@ -26,18 +23,6 @@ export class PollComponent implements OnInit {
   ngOnInit(): void {
     this.getQuestions();
   }
-
-  showVotes(votes) {
-    this.votes = votes;
-  }
-
-  toggle_block() {
-    this.visible = !this.visible;
-  }
-
-  
-
-
 
 
 }

@@ -1,0 +1,6 @@
+<div class="add-new-variant" *ngIf="visible">
+    <label for="new">Add variant: </label>
+    <input type="text" name="new" required pattern="[a-zA-Z_]">
+    <label class="remove" (click)="Remove()">Remove </label>
+</div>
+<button (click)="Save()" class="btn-send">Add your answer</button>
