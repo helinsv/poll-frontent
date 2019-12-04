@@ -6,7 +6,7 @@ import { PollComponent } from './poll/poll.component';
 import { QuestionComponent } from './poll/question.component';
 import { AnswerComponent } from './poll/answer/answer.component';
 import { AddAnswerComponent } from './poll/add-answer/add-answer.component';
-import { FormsModule} from '@angular/forms';
+import { FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { AddQuestionComponent } from './poll/add-question/add-question.component';
 
 @NgModule({
@@ -17,6 +17,7 @@ import { AddQuestionComponent } from './poll/add-question/add-question.component
   imports: [
     BrowserModule,
     FormsModule,
+    ReactiveFormsModule,
     HttpModule,
   ],
   providers: [],

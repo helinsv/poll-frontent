@@ -1,11 +1,15 @@
-<div class="poll" *ngFor="let poll of data; let i = index;">
-    <app-question [question]="poll.question"></app-question>
-    <main>
-        <ul class="answers">
-            <li class="answer" *ngFor="let answer of poll.answers; let i = index;">
-                <app-answer [answerComponent]="answer" [answersArray]="poll.answers" [id]="i"></app-answer>
-            </li>
-        </ul>
-        <!-- <app-add-answer></app-add-answer>-->
-    </main>
+<div class="poll">
+    <div *ngFor="let poll of data; let i = index;">
+        <app-question [question]="poll.question"></app-question>
+        <main>
+            <ul class="answers">
+                <li class="answer" *ngFor="let answer of poll.answers; let i = index;">
+                    <app-answer [answerComponent]="answer" [answersArray]="poll.answers" [id]="i"></app-answer>
+                </li>
+            </ul>
+            <app-add-answer></app-add-answer>
+        </main>
+
+    </div>
+    <app-add-question></app-add-question>
 </div>

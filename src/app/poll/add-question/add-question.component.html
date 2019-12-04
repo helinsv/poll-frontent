@@ -1,3 +1,6 @@
-<p>
-  add-question works!
-</p>
+<form [formGroup]="pollQuestionForm" class="add-new-variant" *ngIf="visible" (ngSubmit)="AddQuestion()">
+    <label for="new">Add variant: </label>
+    <input type="text" name="new" placeholder="Question" formControlName="Question" required pattern="[a-zA-Z_]">
+    <label class="remove" (click)="Remove()">Remove </label>
+</form>
+<button (click)="Save()" class="btn-send">Add your Question</button>

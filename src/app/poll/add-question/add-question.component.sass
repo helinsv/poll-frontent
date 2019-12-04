@@ -1,0 +1,30 @@
+@import "../../../styles.sass"
+
+.btn-send
+  @extend %button;
+  @include button-color($btn-color)
+
+  &:hover
+    @include button-color($btn-color-hover)
+
+.add-new-variant
+  margin: 1rem 0
+  padding: 1rem
+  background-color: $color-hover
+  color: $font-color-dark
+  //display: none
+
+  label
+    color: $font-color-dark
+
+  input
+    width: 75%
+
+  .remove
+    padding-top: 2px
+    float: right
+    color: red
+    cursor: pointer
+    text-transform: uppercase
+
+

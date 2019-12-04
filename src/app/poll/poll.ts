@@ -1,6 +1,6 @@
 export class Question {
-    private id: number;
-    private question: string;
+  public id: number;
+  public question: string;
     public constructor (id, question) {
         this.id = id;
         this.question = question;
@@ -19,8 +19,8 @@ export class Answer {
 }
 
 export class Poll {
-    private id: number;
-    private question: Question;
+  public id: number;
+  public question: string;
     private answers: Answer[];
 
     public addAnswer(answer: Answer) {
