@@ -5,7 +5,11 @@
             <ul class="answers">
                 <li class="answer" *ngFor="let answer of poll.answers; let i = index;">
                     <app-answer [answerComponent]="answer" [answersArray]="poll.answers" [id]="i"></app-answer>
+
                 </li>
+                <!--  (new_answer)='GetAnswer($event)'  <li><input type="radio" name="president"><label>{{goodbye}} </label> </li>
+                 <app-add-answer></app-add-answer>
+                -->
             </ul>
         </main>
     </div>

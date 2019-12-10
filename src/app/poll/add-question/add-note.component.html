@@ -1,0 +1,10 @@
+<form [formGroup]="pollQuestionForm" class="add-new-variant" *ngIf="visible">
+    <label for="add_note">Add note: </label>
+    <input type="text" [(ngModel)]="add_note" name="add_note" placeholder="Question" formControlName="Question" required>
+    <div class="btn-wrapper">
+        <button class="btn-form" (click)="AddQuestion(add_note)">{{btn_add_note}}</button>
+        <button class="btn-form" (click)="Remove()">Remove </button>
+    </div>
+</form>
+
+<button (click)="Close()" class="btn-send">{{btn_close}}</button>
