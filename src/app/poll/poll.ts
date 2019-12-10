@@ -1,7 +1,7 @@
 export class Question {
-  public id: number;
-  public question: string;
-    public constructor (id, question) {
+  private id: number;
+  private question: string;
+  public constructor (id, question) {
         this.id = id;
         this.question = question;
     }
@@ -21,7 +21,7 @@ export class Answer {
 export class Poll {
   public id: number;
   public question: string;
-    private answers: Answer[];
+  private answers: Answer[];
 
     public addAnswer(answer: Answer) {
         this.answers.push(answer);

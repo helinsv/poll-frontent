@@ -1,6 +1,15 @@
-<form [formGroup]="pollAnswerForm" *ngIf="visible" class="add-new-variant" (ngSubmit)="AddAnswer()">
+<form *ngIf="visible" class="add-new-variant" [formGroup]="pollAnswerForm" (ngSubmit)="AddAnswer()">
     <label for="new">Add variant: </label>
-    <input type="text" name="new" placeholder="Answer" formControlName="Answer" required pattern="[a-zA-Z_]">
-    <label class="remove" (click)="Remove()">Remove </label>
+    <input type="text" [(ngModel)]="unic_answer" name="unic_answer" formControlName="Answer" placeholder="Answer" required pattern="[a-zA-Z_] ">
+    <label class="remove" (click)="Remove()"> Remove </label>
 </form>
-<button (click)="Save()" class="btn-send">Add your answer</button>
+<button (click)="Save(unic_answer)" class="btn-send ">Add your answer</button>
+
+<!--
+
+
+
+
+
+
+  -->
