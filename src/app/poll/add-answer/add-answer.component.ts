@@ -1,4 +1,4 @@
-import { Component, OnInit} from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter} from '@angular/core';
 import { FormGroup, FormControl, Validators, FormBuilder } from '@angular/forms';
 import { Poll, Question, Answer } from '../poll';
 import { DataService } from '../data.service';
@@ -11,9 +11,9 @@ import { DataService } from '../data.service';
 
 
 export class AddAnswerComponent implements OnInit {
-
   visible: boolean = false;
 
+  //answer: Poll[];
   pollAnswerForm: FormGroup;
   constructor(private formbuilder: FormBuilder, private dataService: DataService) {
     this.pollAnswerForm = this.formbuilder.group({
@@ -21,6 +21,7 @@ export class AddAnswerComponent implements OnInit {
     });
   }
 
+  @Output() new_answer: EventEmitter<string> = new EventEmitter();
 
   ngOnInit() {
   }
@@ -29,21 +30,29 @@ export class AddAnswerComponent implements OnInit {
     this.pollAnswerForm.reset();
   }
 
-  Save() {
+  Save(unic_answer) {
     this.visible = !this.visible;
     if (!this.visible) {
-      this.AddAnswer();
+      this.new_answer.emit(unic_answer);
+      this.pollAnswerForm.reset();
     }
   }
 
-  AddAnswer() {
-    const poll: Poll = {
-      id: 5,
-      answer: this.pollAnswerForm.controls.Answer.value,
-    };
-    this.pollAnswerForm.reset();
-    this.dataService.AddAnswer(poll);
-}
 
+
+
+  AddAnswer(unic_answer) {
+    //const answer: Answer = {
+     // id: 5,
+     // answer: this.pollAnswerForm.controls.Answer.value,
+    //};
+    //this.pollAnswerForm.reset();
+    //this.dataService.AddAnswer(answer);
+
+    //this.new_answer.emit(this.goodbye);
+    //this.onChange.emit(unic_answer);
+
+   // this.new_answer.emit(unic_answer);
+}
 
 }

@@ -11,6 +11,8 @@ import { Poll } from './poll';
 
 export class PollComponent implements OnInit {
   data: Poll[];
+  btn_add_note: string = "Add note";
+  public note = '';
 
   constructor(private dataService: DataService) { }
 
@@ -24,5 +26,19 @@ export class PollComponent implements OnInit {
     this.getQuestions();
   }
 
+  /*GetAnswer(data){
+    this.goodbye = data;
+  }*/
+
+  GetNote(data) {
+    this.note =  data;
+    if (this.note === undefined || this.note == null || this.note.length <= 0) {
+      this.note = '';
+      this.btn_add_note = 'Add note';
+    } else {
+      this.note = 'Your note: '+ ' ' + data;
+      this.btn_add_note = 'Change note';
+    }
+}
 
 }

@@ -6,10 +6,13 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
   templateUrl: './answer.component.html',
   styleUrls: ['./answer.component.sass']
 })
+
 export class AnswerComponent {
   @Input() answerComponent: string;
   @Input() id: number;
   @Input() answersArray: number;
+  @Input() unic_answer: any;
+
 
 
 }
